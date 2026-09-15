@@ -54,8 +54,10 @@ INSERT INTO employees VALUES
 (110, 'Arjun', 'Singh', 'M', 'MK_MAN', 'Marketing', 68000, 5,
 TO_DATE('30-APR-2019', 'DD-MON-YYYY'), 'Jaipur');
 ```
-![op](o1.png)
+![op](b1.png)
 ![op](o2.png)
+
+# 3a1  
 ```
 
 SELECT employee_id, first_name,
@@ -63,12 +65,16 @@ TO_CHAR(hire_date, 'DD-MON-YYYY')
 FROM employees;
 ```
 ![op](o3.png)
+#3a2
+
 ```
 SELECT employee_id, first_name,
 TO_CHAR(salary, '$99,999.99')
 FROM employees;
 ```
+
 ![op](o4.png)
+#3a3
 ```
 
 SELECT employee_id, first_name,
@@ -76,28 +82,33 @@ TO_NUMBER(TO_CHAR(salary)) + 5000
 FROM employees;
 ```
 ![op](o5.png)
+#3a4
 ```
 SELECT *
 FROM employees
 WHERE hire_date > TO_DATE('01-JAN-2020', 'DD-MON-YYYY');
 ```
 ![op](o6.png)
+#3A5
 ```
 SELECT first_name || ' ' || last_name
 FROM employees;
 ```
 ![op](o7.png)
+#3A6
 ```
 SELECT CONCAT(first_name, last_name)
 FROM employees;
 ```
 ![op](o8.png)
+#3A7
 ```
 
 SELECT LPAD(first_name, 20, '*')
 FROM employees;
 ```
 ![op](o9.png)
+#3A8
 ```
 
 
@@ -105,87 +116,102 @@ SELECT RPAD(first_name, 20, '*')
 FROM employees;
 ```
 ![op](o10.png)
+#3A9
 ```
 SELECT LTRIM(first_name)
 FROM employees;
 ```
 ![op](o11.png)
+#3A10
 ```
 SELECT RTRIM(first_name)
 FROM employees;
 ```
 ![op](o12.png)
 ```
-
+#3A11
 SELECT LOWER(first_name)
 FROM employees;
 ```
 ![op](o13.png)
+#3A12
 ```
 
 SELECT UPPER(first_name)
 FROM employees;
 ```
 ![op](o14.png)
+#3A13
 ```
 
 SELECT INITCAP(first_name)
 FROM employees;
 ```
 ![op](o15.png)
+#3A14
 ```
 
 SELECT first_name, LENGTH(first_name)
 FROM employees;
 ```
 ![op](o16.png)
+#3A15
 ```
 SELECT first_name, SUBSTR(first_name, 1, 3)
 FROM employees;
 ```
 ![op](o26.png)
+#3A16
 ```
 SELECT first_name, INSTR(first_name, 'a')
 FROM employees;
 ```
 ![op](o17.png)
+#3A17
 ```
 
 SELECT employee_id, first_name, last_name, SYSDATE
 FROM employees;
 ```
 ![op](o18.png)
+#3A18
 ```
 SELECT first_name, hire_date,
 NEXT_DAY(hire_date, 'MONDAY')
 FROM employees;
 ```
 ![op](o19.png)
+#3A19
 ```
 SELECT first_name, hire_date,
 ADD_MONTHS(hire_date, 6)
 FROM employees;
 ```
 ![op](o20.png)
+#3A20
 ```
 SELECT first_name, hire_date,
 LAST_DAY(hire_date)
 FROM employees;
 ```
 ![op](o21.png)
+#3A21
 ```
+
 
 SELECT first_name,
 MONTHS_BETWEEN(SYSDATE, hire_date)
 FROM employees;
 ```
 ![op](o22.png)
+#3A22
 ```
 SELECT first_name, salary,
 LEAST(salary, 60000)
 FROM employees;
 ```
 ![op](o23.png)
+#3A23
 ```
 
 SELECT first_name, salary,
@@ -193,24 +219,28 @@ GREATEST(salary, 60000)
 FROM employees;
 ```
 ![op](o24.png)
+#3A24
 ```
 SELECT first_name, hire_date,
 TRUNC(hire_date, 'MONTH')
 FROM employees;
 ```
 ![op](o25.png)
+#3A25
 ```
 SELECT first_name, hire_date,
 ROUND(hire_date, 'MONTH')
 FROM employees;
 ```
 ![op](o27.png)
+#3A26
 ```
 SELECT first_name,
 TO_CHAR(hire_date, 'DAY, DD-MON-YYYY')
 FROM employees;
 ```
 ![op](o28.png)
+#3A27
 ```
 SELECT *
 FROM employees
@@ -220,6 +250,7 @@ WHERE hire_date < TO_DATE('01-JAN-2019', 'DD-MON-YYYY');
 
 
 #EXPERIMENT 3B
+#3B1
 ```
 select *from employees;
 CREATE VIEW emp_view AS
@@ -227,17 +258,20 @@ SELECT *
 FROM employees;
 ```
 ![op](p1.png)
+#3B2
 ```
 CREATE VIEW emp_basic AS
 SELECT employee_id, first_name, last_name, department, salary
 FROM employees;
 ```
 ![op](p2.png)
+#3B3
 ```
 SELECT *
 FROM emp_view;
 ```
 ![op](p3.png)
+#3B4
 ```
 CREATE VIEW it_employees AS
 SELECT *
@@ -245,6 +279,7 @@ FROM employees
 WHERE department = 'IT';
 ```
 ![op](p4.png)
+#3B5
 ```
 CREATE VIEW high_salary AS
 SELECT *
@@ -252,6 +287,7 @@ FROM employees
 WHERE salary > 60000;
 ```
 ![op](p5.png)
+#3B6
 ```
 CREATE VIEW hyderabad_emp AS
 SELECT *
@@ -259,6 +295,7 @@ FROM employees
 WHERE city = 'Hyderabad';
 ```
 ![op](p6.png)
+#3B7
 ```
 CREATE VIEW female_emp AS
 SELECT *
@@ -266,6 +303,7 @@ FROM employees
 WHERE gender = 'F';
 ```
 ![op](p7.png)
+#3B8
 ```
 CREATE VIEW recent_employees AS
 SELECT *
@@ -273,17 +311,21 @@ FROM employees
 WHERE hire_date >= TO_DATE('01-JAN-2020', 'DD-MON-YYYY');
 ```
 ![op](p8.png)
+#3B9
 ```
 SELECT employee_id, first_name, salary
 FROM high_salary;
 ```
 ![op](p9.png)
+#3B10
 ```
 CREATE OR REPLACE VIEW emp_basic AS
 SELECT employee_id, first_name, last_name, department, salary, city
 FROM employees;
 ```
 ![op](p10.png)
+
+#3B11
 ```
 CREATE VIEW emp_salary_view AS
 SELECT employee_id, first_name, last_name, salary
@@ -291,6 +333,7 @@ FROM employees
 WITH READ ONLY;
 ```
 ![op](p11.png)
+#3B12
 ```
 CREATE VIEW sales_emp AS
 SELECT *
@@ -299,17 +342,21 @@ WHERE department = 'Sales'
 WITH CHECK OPTION;
 ```
 ![op](p12.png)
+#3B13
 ```
 UPDATE emp_basic
 SET salary = 70000
 WHERE employee_id = 101;
 ```
 ![op](p13.png)
+
+#3B14
 ```
 DELETE FROM emp_view
 WHERE employee_id = 107;
 ```
 ![op](p14.png)
+#3B15
 ```
 INSERT INTO emp_basic
 (employee_id, first_name, last_name, department, salary, city)
@@ -317,15 +364,18 @@ VALUES
 (111, 'Ravi', 'Kumar', 'IT', 55000, 'Hyderabad');
 ```
 ![op](p15.png)
+#3B16
 ```
 DESC emp_basic;
 ```
 ![op](p16.png)
+#3B17
 ```
 SELECT *
 FROM it_employees;
 ```
 ![op](p17.png)
+#3B18
 ```
 
 SELECT *
@@ -333,29 +383,36 @@ FROM high_salary
 WHERE salary > 70000;
 ```
 ![op](p18.png)
+#3B19
 ```
 SELECT *
 FROM female_emp;
 ```
 ![op](p19.png)
+
+#3B20
 ```
 SELECT first_name, salary
 FROM hyderabad_emp;
 ```
 ![op](p20.png)
+#3B21
 ```
 DROP VIEW emp_view;
 ```
 ![op](p21.png)
+#3B22
 ```
 DROP VIEW high_salary;
 ```
 ![op](p22.png)
+#3B23
 ```
 
 DROP VIEW emp_basic;
 ```
 ![op](p23.png)
+#3B24
 ```
 CREATE VIEW hr_employees AS
 SELECT *
@@ -363,6 +420,7 @@ FROM employees
 WHERE department = 'HR';
 ```
 ![op](p24.png)
+#3B25
 ```
 CREATE VIEW marketing_emp AS
 SELECT employee_id, first_name, department, salary
@@ -370,6 +428,7 @@ FROM employees
 WHERE department = 'Marketing';
 ```
 ![op](p25.png)
+#3B26
 ```
 CREATE VIEW top_earners AS
 SELECT *
@@ -377,6 +436,7 @@ FROM employees
 WHERE salary > 70000;
 ```
 ![op](p26.png)
+#3B27
 ```
 
 CREATE VIEW emp_city AS
@@ -386,6 +446,7 @@ FROM employees;
 ![op](p27.png)
 
 #experiment 4
+#4.1
 ```
 CREATE TABLE dept (
     dno NUMBER(5),
@@ -393,6 +454,7 @@ CREATE TABLE dept (
 );
 ```
 ![op](1.png)
+#4.2
 ```
 ALTER TABLE dept
 ADD CONSTRAINT dept_pk PRIMARY KEY (dno);
@@ -401,6 +463,7 @@ ALTER TABLE dept
 MODIFY dname CONSTRAINT dept_dname_nn NOT NULL;
 ```
 ![op](2.png)
+#4.3
 ```
 CREATE TABLE student (
     sid NUMBER(5),
@@ -410,6 +473,7 @@ CREATE TABLE student (
 ```
 
 ![op](3.png)
+#4.4
 ```
 ALTER TABLE student
 ADD CONSTRAINT student_pk PRIMARY KEY (sid);
@@ -423,6 +487,7 @@ FOREIGN KEY (did)
 REFERENCES dept(dno);
 ```
 ![op](4.png)
+#4.5
 ```
 INSERT INTO dept VALUES (1, 'CSE');
 INSERT INTO dept VALUES (2, 'ME');
@@ -433,6 +498,7 @@ INSERT INTO dept VALUES (6, 'CSM');
 INSERT INTO dept VALUES (7, 'CSD');
 ```
 ![op](5.png)
+#4.6
 ```
 INSERT INTO student VALUES (101, 'Ravi', 1);
 INSERT INTO student VALUES (102, 'Sita', 1);
@@ -447,6 +513,7 @@ INSERT INTO student VALUES (110, 'Lakshmi', 5);
 ```
 ![op](5.png)
 ![op](6.png)
+#4.7
 ```
 SELECT *
 FROM student
@@ -454,6 +521,7 @@ NATURAL JOIN
 (SELECT dno AS did, dname FROM dept);
 ```
 ![op](i1.png)
+#4.8
 ```
 
 SELECT *
@@ -461,6 +529,7 @@ FROM student s, dept d
 WHERE s.did = d.dno;
 ```
 ![op](i2.png)
+#4.9
 ```
 SELECT *
 FROM student s
@@ -468,6 +537,7 @@ JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i3.png)
+#4.10
 ```
 SELECT *
 FROM student
@@ -475,6 +545,7 @@ NATURAL LEFT OUTER JOIN
 (SELECT dno AS did, dname FROM dept);
 ```
 ![op](i4.png)
+#4.11
 ```
 SELECT *
 FROM student
@@ -482,6 +553,7 @@ NATURAL RIGHT OUTER JOIN
 (SELECT dno AS did, dname FROM dept);
 ```
 ![op](i5.png)
+#4.12
 ```
 SELECT *
 FROM student
@@ -489,6 +561,7 @@ NATURAL FULL OUTER JOIN
 (SELECT dno AS did, dname FROM dept);
 ```
 ![op](i6.png)
+#4.13
 ```
 SELECT *
 FROM student s
@@ -496,6 +569,7 @@ LEFT OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i7.png)
+#4.14
 ```
 SELECT *
 FROM student s
@@ -503,6 +577,7 @@ RIGHT OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i8.png)
+#4.15
 ```
 SELECT *
 FROM student s
@@ -510,6 +585,7 @@ FULL OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i9.png)
+#4.16
 ```
 SELECT *
 FROM student s
@@ -517,6 +593,7 @@ LEFT OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i10.png)
+#4.17
 ```
 SELECT *
 FROM student s
@@ -524,6 +601,7 @@ RIGHT OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i11.png)
+#4.18
 ```
 SELECT *
 FROM student s
@@ -531,6 +609,7 @@ FULL OUTER JOIN dept d
 ON s.did = d.dno;
 ```
 ![op](i12.png)
+#4.19
 ```
 SELECT *
 FROM student
@@ -543,20 +622,22 @@ CROSS JOIN dept;
 
 
 #virtual lab experiments 
-
+#VIRTUAL LAB 1ST EXPERIMENT
 ```
  #ist experiments
+  PRETEST AND POST TEST 
 ```
-![op](o1.png)
 ![op](o2-1.png)
+![op](o1.png)
 ![op](o3-2.png)
 ![op](o4-3.png)
 
 ```
-#2nd experiment
-```
-# 2nd experiment
+#VIRTUAL LAB 2nd experiment
 
+```2nd experiment
+   PRETEST AND POSTTEST
+```
 ![op](a1.png)
 ![op](a2.png)
 
