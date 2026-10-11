@@ -430,3 +430,4 @@ SELECT * FROM student_course_view;
 ```
 ![op](5j.png)
 
+# thanku sir
